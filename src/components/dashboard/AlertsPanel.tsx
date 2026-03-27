@@ -13,21 +13,24 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
   return (
     <div
       style={{
-        background: "rgba(20,24,44,0.85)",
-        border: "1px solid rgba(173,210,235,0.08)",
-        borderRadius: 12,
-        padding: "20px",
+        background: "rgba(15,18,38,0.6)",
+        border: "1px solid rgba(6,182,212,0.1)",
+        borderRadius: 10,
+        padding: "16px",
         backdropFilter: "blur(8px)",
         height: "100%",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-3">
         <div>
           <h2
-            className="text-base font-semibold"
+            className="text-sm font-semibold"
             style={{
-              color: "#e8eef5",
+              color: "#f5f7fa",
               fontFamily: "'Space Grotesk', sans-serif",
+              margin: 0,
             }}
           >
             Alert Feed
@@ -35,20 +38,21 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
           <p
             className="text-xs mt-0.5"
             style={{
-              color: "#7080a0",
+              color: "#6b7280",
               fontFamily: "'Outfit', sans-serif",
+              margin: 0,
             }}
           >
-            Real-time anomaly detection
+            Real-time anomalies
           </p>
         </div>
         <div
-          className="flex items-center justify-center rounded-full w-7 h-7 text-xs font-bold"
+          className="flex items-center justify-center rounded-lg w-6 h-6 text-xs font-bold"
           style={{
             background:
-              alerts.length > 0 ? "rgba(249,115,22,0.1)" : "rgba(173,210,235,0.05)",
-            color: alerts.length > 0 ? "#f97316" : "#7080a0",
-            border: `1px solid ${alerts.length > 0 ? "rgba(249,115,22,0.2)" : "rgba(173,210,235,0.1)"}`,
+              alerts.length > 0 ? "rgba(236,72,153,0.1)" : "rgba(6,182,212,0.05)",
+            color: alerts.length > 0 ? "#ec4899" : "#6b7280",
+            border: `1px solid ${alerts.length > 0 ? "rgba(236,72,153,0.2)" : "rgba(6,182,212,0.1)"}`,
             fontFamily: "'JetBrains Mono', monospace",
           }}
         >
@@ -56,7 +60,12 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
         </div>
       </div>
 
-      <div className="flex flex-col gap-2" style={{ maxHeight: 340, overflowY: "auto" }}>
+      <div
+        className="flex flex-col gap-2 flex-1"
+        style={{
+          overflowY: "auto",
+        }}
+      >
         {alerts.length === 0 ? (
           <div
             className="flex flex-col items-center justify-center py-8"
@@ -70,7 +79,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
               stroke="currentColor"
               strokeWidth="1.5"
               className="mb-2"
-              style={{ color: "rgba(16,185,129,0.4)" }}
+              style={{ color: "rgba(6,182,212,0.3)" }}
             >
               <path d="M9 12l2 2 4-4" />
               <circle cx="12" cy="12" r="10" />
@@ -78,11 +87,11 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
             <p
               className="text-xs"
               style={{
-                color: "#10b981",
+                color: "#06b6d4",
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
-              All parameters nominal
+              All systems nominal
             </p>
           </div>
         ) : (
@@ -112,20 +121,18 @@ const AlertBox: React.FC<{
   };
 
   const isAlert = alert.type === "alert";
-  const color = isAlert ? "#f97316" : "#dcb0fa";
-  const bgColor = isAlert
-    ? "rgba(249,115,22,0.08)"
-    : "rgba(220,176,250,0.08)";
+  const color = isAlert ? "#ec4899" : "#f5f7fa";
+  const bgColor = "rgba(15,18,38,0.8)";
   const borderColor = isAlert
-    ? "rgba(249,115,22,0.15)"
-    : "rgba(220,176,250,0.15)";
+    ? "rgba(236,72,153,0.3)"
+    : "rgba(255,255,255,0.2)";
 
   return (
     <div
       style={{
         background: bgColor,
         border: `1px solid ${borderColor}`,
-        borderRadius: 10,
+        borderRadius: 8,
         padding: "10px 12px",
         transition: "all 0.3s ease",
         transform: exiting
@@ -154,7 +161,7 @@ const AlertBox: React.FC<{
             <p
               className="text-xs mt-0.5"
               style={{
-                color: "#7080a0",
+                color: "#6b7280",
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
@@ -174,7 +181,7 @@ const AlertBox: React.FC<{
         <button
           onClick={handleDismiss}
           style={{
-            color: "#7080a0",
+            color: "#6b7280",
             background: "none",
             border: "none",
             cursor: "pointer",
@@ -185,10 +192,10 @@ const AlertBox: React.FC<{
             transition: "color 0.2s",
           }}
           onMouseEnter={(e) =>
-            ((e.target as HTMLButtonElement).style.color = "#add2eb")
+            ((e.target as HTMLButtonElement).style.color = "#ef4444")
           }
           onMouseLeave={(e) =>
-            ((e.target as HTMLButtonElement).style.color = "#7080a0")
+            ((e.target as HTMLButtonElement).style.color = "#6b7280")
           }
         >
           ✕
@@ -197,3 +204,4 @@ const AlertBox: React.FC<{
     </div>
   );
 };
+

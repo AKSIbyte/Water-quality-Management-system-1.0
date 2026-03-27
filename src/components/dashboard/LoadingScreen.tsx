@@ -13,7 +13,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
   return (
     <div
       className="fixed inset-0 flex flex-col items-center justify-center z-50"
-      style={{ background: "linear-gradient(135deg, #0f1419 0%, #1a1f3a 100%)" }}
+      style={{ background: "#0a0e27" }}
     >
       {/* Water ripple rings */}
       <div className="relative flex items-center justify-center mb-8">
@@ -22,7 +22,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
           style={{
             width: 120,
             height: 120,
-            borderColor: "rgba(173,210,235,0.3)",
+            borderColor: "rgba(59,130,246,0.3)",
             animationDuration: "1.4s",
           }}
         />
@@ -31,7 +31,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
           style={{
             width: 90,
             height: 90,
-            borderColor: "rgba(173,210,235,0.5)",
+            borderColor: "rgba(59,130,246,0.5)",
             animationDuration: "1.4s",
             animationDelay: "0.3s",
           }}
@@ -41,7 +41,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
           style={{
             width: 60,
             height: 60,
-            borderColor: "rgba(173,210,235,0.7)",
+            borderColor: "rgba(59,130,246,0.7)",
             animationDuration: "1.4s",
             animationDelay: "0.6s",
           }}
@@ -53,8 +53,8 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
             width: 56,
             height: 56,
             background:
-              "radial-gradient(circle at 40% 35%, rgba(173,210,235,0.9), rgba(100,150,200,0.8))",
-            boxShadow: "0 0 30px rgba(173,210,235,0.4), 0 0 60px rgba(173,210,235,0.2)",
+              "radial-gradient(circle at 40% 35%, rgba(59,130,246,0.9), rgba(37,99,235,0.8))",
+            boxShadow: "0 0 30px rgba(59,130,246,0.4), 0 0 60px rgba(59,130,246,0.2)",
           }}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -69,8 +69,8 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
       <h1
         className="text-3xl font-bold tracking-widest mb-2"
         style={{
-          color: "#add2eb",
-          textShadow: "0 0 20px rgba(173,210,235,0.2)",
+          color: "#3b82f6",
+          textShadow: "0 0 20px rgba(59,130,246,0.2)",
           fontFamily: "'Space Grotesk', sans-serif",
           letterSpacing: "0.15em",
         }}
@@ -80,7 +80,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
       <p
         className="text-sm tracking-widest mb-8"
         style={{
-          color: "#7080a0",
+          color: "#6b7280",
           fontFamily: "'Outfit', sans-serif",
           letterSpacing: "0.3em",
           textTransform: "uppercase",
@@ -95,14 +95,14 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
         style={{
           width: 200,
           height: 3,
-          background: "rgba(0,0,0,0.08)",
+          background: "rgba(59,130,246,0.08)",
         }}
       >
         <div
           className="absolute inset-y-0 left-0 rounded-full"
           style={{
-            background: "linear-gradient(90deg, #add2eb, #dcb0fa)",
-            boxShadow: "0 0 8px rgba(173,210,235,0.4)",
+            background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
+            boxShadow: "0 0 8px rgba(59,130,246,0.4)",
             animation: "loading-progress 1.6s ease-in-out forwards",
           }}
         />
@@ -110,7 +110,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
 
       <p
         className="mt-4 text-xs"
-        style={{ color: "#7080a0", letterSpacing: "0.15em" }}>
+        style={{ color: "#6b7280", letterSpacing: "0.15em" }}>
         INITIALIZING SENSORS...
       </p>
 

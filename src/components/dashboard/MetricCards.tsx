@@ -15,33 +15,33 @@ interface MetricCardProps {
 
 const statusColors = {
   safe: {
-    accent: "#add2eb",
-    bg: "rgba(173,210,235,0.08)",
-    border: "rgba(173,210,235,0.2)",
-    glow: "rgba(173,210,235,0.12)",
-    badge: "rgba(173,210,235,0.12)",
-    badgeText: "#add2eb",
-    badgeBorder: "rgba(173,210,235,0.25)",
+    accent: "#06b6d4",
+    bg: "rgba(6,182,212,0.08)",
+    border: "rgba(6,182,212,0.15)",
+    glow: "rgba(6,182,212,0.1)",
+    badge: "rgba(6,182,212,0.1)",
+    badgeText: "#06b6d4",
+    badgeBorder: "rgba(6,182,212,0.2)",
     label: "OPTIMAL",
   },
   warning: {
-    accent: "#dcb0fa",
-    bg: "rgba(220,176,250,0.08)",
-    border: "rgba(220,176,250,0.2)",
-    glow: "rgba(220,176,250,0.12)",
-    badge: "rgba(220,176,250,0.12)",
-    badgeText: "#dcb0fa",
-    badgeBorder: "rgba(220,176,250,0.25)",
+    accent: "#f97316",
+    bg: "rgba(249,115,22,0.08)",
+    border: "rgba(249,115,22,0.15)",
+    glow: "rgba(249,115,22,0.1)",
+    badge: "rgba(249,115,22,0.1)",
+    badgeText: "#f97316",
+    badgeBorder: "rgba(249,115,22,0.2)",
     label: "WARNING",
   },
   alert: {
-    accent: "#f97316",
-    bg: "rgba(249,115,22,0.08)",
-    border: "rgba(249,115,22,0.2)",
-    glow: "rgba(249,115,22,0.12)",
-    badge: "rgba(249,115,22,0.12)",
-    badgeText: "#f97316",
-    badgeBorder: "rgba(249,115,22,0.25)",
+    accent: "#ec4899",
+    bg: "rgba(236,72,153,0.08)",
+    border: "rgba(236,72,153,0.15)",
+    glow: "rgba(236,72,153,0.1)",
+    badge: "rgba(236,72,153,0.1)",
+    badgeText: "#ec4899",
+    badgeBorder: "rgba(236,72,153,0.2)",
     label: "ALERT",
   },
 };
@@ -67,87 +67,53 @@ const MetricCard: React.FC<MetricCardProps> = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? "rgba(26,31,58,0.95)" : "rgba(20,24,44,0.85)",
-        border: `1px solid ${hovered ? colors.border : "rgba(173,210,235,0.08)"}`,
+        background: hovered ? "rgba(20,25,45,0.8)" : "rgba(15,18,38,0.6)",
+        border: `1px solid ${hovered ? colors.border : "rgba(6,182,212,0.1)"}`,
         borderRadius: 12,
-        padding: "20px 20px",
+        padding: "16px",
         transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-        transform: hovered ? "translateY(-4px)" : isVisible ? "translateY(0)" : "translateY(20px)",
+        transform: hovered ? "translateY(-3px)" : isVisible ? "translateY(0)" : "translateY(20px)",
         opacity: isVisible ? 1 : 0,
         backdropFilter: "blur(8px)",
         boxShadow: hovered
-          ? `0 16px 32px rgba(0,0,0,0.3), 0 0 0 1px ${colors.border}`
-          : "0 2px 12px rgba(0,0,0,0.2)",
+          ? `0 12px 24px rgba(0,0,0,0.25), 0 0 1px ${colors.border}`
+          : "0 2px 8px rgba(0,0,0,0.15)",
         transitionDelay: isVisible ? `${delay}ms` : "0ms",
         cursor: "default",
       }}
     >
-      {/* Top row */}
-      <div className="flex items-start justify-between mb-3">
-        <div
-          className="flex items-center justify-center rounded-xl"
+      {/* Top row with icon and label */}
+      <div className="flex flex-col items-center mb-3">
+        <p
+          className="text-xs"
           style={{
-            width: 42,
-            height: 42,
-            background: `${colors.bg}`,
-            border: `1px solid ${colors.border}`,
-            color: colors.accent,
-          }}
-        >
-          {icon}
-        </div>
-        <div
-          className="flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
-          style={{
-            background: colors.badge,
-            border: `1px solid ${colors.badgeBorder}`,
-            color: colors.badgeText,
+            color: "#9ca3af",
             fontFamily: "'Outfit', sans-serif",
-            letterSpacing: "0.08em",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            margin: 0,
           }}
         >
-          <span
-            className="rounded-full"
-            style={{
-              width: 5,
-              height: 5,
-              backgroundColor: colors.accent,
-              display: "inline-block",
-            }}
-          />
-          {colors.label}
-        </div>
+          {label}
+        </p>
       </div>
 
-      {/* Label */}
-      <p
-        className="text-xs mb-1"
-        style={{
-          color: "#9ca3af",
-          fontFamily: "'Outfit', sans-serif",
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-        }}
-      >
-        {label}
-      </p>
-
       {/* Value */}
-      <div className="flex items-end gap-2">
+      <div className="mb-3">
         <span
-          className="text-3xl font-bold leading-none"
+          className="text-xs font-semibold uppercase tracking-widest" 
           style={{
             color: colors.accent,
-            fontFamily: "'JetBrains Mono', monospace",
-            textShadow: "none",
+            fontFamily: "'Outfit', sans-serif",
           }}
         >
           {value}
         </span>
         <span
-          className="text-sm mb-0.5"
+          className="ml-2"
           style={{
             color: "#6b7280",
+            fontSize: 10,
             fontFamily: "'Outfit', sans-serif",
           }}
         >
@@ -155,22 +121,38 @@ const MetricCard: React.FC<MetricCardProps> = ({
         </span>
       </div>
 
-      {/* Trend */}
-      <div className="flex items-center gap-1 mt-2">
+      {/* Progress Bar */}
+      <div style={{ marginBottom: "8px" }}>
+        <div
+          className="rounded-full overflow-hidden"
+          style={{
+            height: 6,
+            background: `rgba(${colors.accent === "#06b6d4" ? "6,182,212" : colors.accent === "#f97316" ? "249,115,22" : "236,72,153"},0.1)`,
+          }}
+        >
+          <div
+            style={{
+              width: `${Math.min(Math.abs(parseFloat(value)) * 10, 100)}%`,
+              height: "100%",
+              background: `linear-gradient(90deg, ${colors.accent}, ${colors.accent}dd)`,
+              borderRadius: "9999px",
+              transition: "width 0.6s ease",
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Trend indicator */}
+      <div className="flex items-center gap-1">
         <span
           className="text-sm font-semibold"
           style={{
             color: trendGood ? "#10b981" : "#f97316",
             fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 11,
           }}
         >
           {isUp ? "↑" : "↓"} {Math.abs(delta).toFixed(2)}
-        </span>
-        <span
-          className="text-xs"
-          style={{ color: "#4b5563", fontFamily: "'Outfit', sans-serif" }}
-        >
-          vs last reading
         </span>
       </div>
     </div>
@@ -301,20 +283,35 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
   ] as const;
 
   return (
-    <div className="grid grid-cols-5 gap-4">
+    <div
+      style={{
+        display: "flex",
+        gap: "16px",
+        width: "100%",
+        overflowX: "auto",
+        paddingBottom: "8px",
+      }}
+    >
       {cards.map((card) => (
-        <MetricCard
+        <div
           key={card.label}
-          label={card.label}
-          value={card.value}
-          unit={card.unit}
-          icon={card.icon}
-          status={card.status}
-          delta={card.delta}
-          deltaPositiveGood={card.deltaPositiveGood}
-          delay={card.delay}
-          isVisible={isVisible}
-        />
+          style={{
+            flex: "0 0 calc(20% - 12.8px)",
+            minWidth: "200px",
+          }}
+        >
+          <MetricCard
+            label={card.label}
+            value={card.value}
+            unit={card.unit}
+            icon={card.icon}
+            status={card.status}
+            delta={card.delta}
+            deltaPositiveGood={card.deltaPositiveGood}
+            delay={card.delay}
+            isVisible={isVisible}
+          />
+        </div>
       ))}
     </div>
   );

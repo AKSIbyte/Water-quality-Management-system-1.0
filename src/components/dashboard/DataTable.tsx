@@ -11,22 +11,22 @@ const PredictionBadge: React.FC<{ status: PredictionStatus }> = ({
 }) => {
   const styles = {
     Safe: {
-      bg: "rgba(173,210,235,0.08)",
-      color: "#add2eb",
-      border: "rgba(173,210,235,0.15)",
-      dot: "#add2eb",
+      bg: "rgba(6,182,212,0.1)",
+      color: "#06b6d4",
+      border: "rgba(6,182,212,0.2)",
+      dot: "#06b6d4",
     },
     Warning: {
-      bg: "rgba(220,176,250,0.08)",
-      color: "#dcb0fa",
-      border: "rgba(220,176,250,0.15)",
-      dot: "#dcb0fa",
+      bg: "rgba(249,115,22,0.1)",
+      color: "#f97316",
+      border: "rgba(249,115,22,0.2)",
+      dot: "#f97316",
     },
     Alert: {
-      bg: "rgba(249,115,22,0.08)",
-      color: "#f97316",
-      border: "rgba(249,115,22,0.15)",
-      dot: "#f97316",
+      bg: "rgba(236,72,153,0.1)",
+      color: "#ec4899",
+      border: "rgba(236,72,153,0.2)",
+      dot: "#ec4899",
     },
   };
   const s = styles[status];
@@ -59,19 +59,19 @@ export const DataTable: React.FC<DataTableProps> = ({ readings, newRowId }) => {
   return (
     <div
       style={{
-        background: "rgba(20,24,44,0.85)",
-        border: "1px solid rgba(173,210,235,0.08)",
-        borderRadius: 12,
-        padding: "20px 20px",
+        background: "rgba(15,18,38,0.6)",
+        border: "1px solid rgba(6,182,212,0.1)",
+        borderRadius: 10,
+        padding: "16px",
         backdropFilter: "blur(8px)",
       }}
     >
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-3">
         <div>
           <h2
-            className="text-base font-semibold"
+            className="text-sm font-semibold"
             style={{
-              color: "#e8eef5",
+              color: "#f5f7fa",
               fontFamily: "'Space Grotesk', sans-serif",
             }}
           >
@@ -80,19 +80,19 @@ export const DataTable: React.FC<DataTableProps> = ({ readings, newRowId }) => {
           <p
             className="text-xs mt-0.5"
             style={{
-              color: "#7080a0",
+              color: "#6b7280",
               fontFamily: "'Outfit', sans-serif",
             }}
           >
-            Last 10 sensor data points
+            Last 10 sensor readings
           </p>
         </div>
         <div
           className="px-2.5 py-1 rounded-full text-xs"
           style={{
-            background: "rgba(173,210,235,0.08)",
-            color: "#add2eb",
-            border: "1px solid rgba(173,210,235,0.15)",
+            background: "rgba(6,182,212,0.1)",
+            color: "#06b6d4",
+            border: "1px solid rgba(6,182,212,0.2)",
             fontFamily: "'Outfit', sans-serif",
           }}
         >
@@ -112,11 +112,11 @@ export const DataTable: React.FC<DataTableProps> = ({ readings, newRowId }) => {
                       textAlign: "left",
                       padding: "8px 12px",
                       fontSize: 10,
-                      color: "#9ca3af",
+                      color: "#6b7280",
                       fontFamily: "'Outfit', sans-serif",
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
-                      borderBottom: "1px solid rgba(173,210,235,0.06)",
+                      borderBottom: "1px solid rgba(6,182,212,0.08)",
                     }}
                   >
                     {col}
@@ -134,9 +134,9 @@ export const DataTable: React.FC<DataTableProps> = ({ readings, newRowId }) => {
                   key={`${row.timestamp}-${i}`}
                   style={{
                     background: isNew
-                      ? "rgba(173,210,235,0.06)"
+                      ? "rgba(6,182,212,0.08)"
                       : isEven
-                        ? "rgba(173,210,235,0.02)"
+                        ? "rgba(6,182,212,0.02)"
                         : "transparent",
                     transition: "background 0.6s ease",
                   }}
@@ -147,7 +147,7 @@ export const DataTable: React.FC<DataTableProps> = ({ readings, newRowId }) => {
                       fontSize: 11,
                       color: "#9ca3af",
                       fontFamily: "'JetBrains Mono', monospace",
-                      borderBottom: "1px solid rgba(173,210,235,0.03)",
+                      borderBottom: "1px solid rgba(6,182,212,0.04)",
                     }}
                   >
                     {row.timestamp}
@@ -156,10 +156,10 @@ export const DataTable: React.FC<DataTableProps> = ({ readings, newRowId }) => {
                     style={{
                       padding: "9px 12px",
                       fontSize: 12,
-                      color: "#e8eef5",
+                      color: "#e5e7eb",
                       fontFamily: "'JetBrains Mono', monospace",
                       fontWeight: 500,
-                      borderBottom: "1px solid rgba(173,210,235,0.03)",
+                      borderBottom: "1px solid rgba(59,130,246,0.04)",
                     }}
                   >
                     {row.temp.toFixed(1)}
@@ -168,10 +168,10 @@ export const DataTable: React.FC<DataTableProps> = ({ readings, newRowId }) => {
                     style={{
                       padding: "9px 12px",
                       fontSize: 12,
-                      color: "#e8eef5",
+                      color: "#e5e7eb",
                       fontFamily: "'JetBrains Mono', monospace",
                       fontWeight: 500,
-                      borderBottom: "1px solid rgba(173,210,235,0.03)",
+                      borderBottom: "1px solid rgba(59,130,246,0.04)",
                     }}
                   >
                     {row.ph.toFixed(2)}
@@ -182,13 +182,13 @@ export const DataTable: React.FC<DataTableProps> = ({ readings, newRowId }) => {
                       fontSize: 12,
                       color:
                         row.do < 5
-                          ? "#f97316"
+                          ? "#ef4444"
                           : row.do < 6
-                            ? "#dcb0fa"
-                            : "#add2eb",
+                            ? "#f59e0b"
+                            : "#3b82f6",
                       fontFamily: "'JetBrains Mono', monospace",
                       fontWeight: 600,
-                      borderBottom: "1px solid rgba(173,210,235,0.03)",
+                      borderBottom: "1px solid rgba(59,130,246,0.04)",
                     }}
                   >
                     {row.do.toFixed(2)}
@@ -197,10 +197,10 @@ export const DataTable: React.FC<DataTableProps> = ({ readings, newRowId }) => {
                     style={{
                       padding: "9px 12px",
                       fontSize: 12,
-                      color: "#e8eef5",
+                      color: "#e5e7eb",
                       fontFamily: "'JetBrains Mono', monospace",
                       fontWeight: 500,
-                      borderBottom: "1px solid rgba(173,210,235,0.03)",
+                      borderBottom: "1px solid rgba(59,130,246,0.04)",
                     }}
                   >
                     {row.turbidity.toFixed(2)}
@@ -208,7 +208,7 @@ export const DataTable: React.FC<DataTableProps> = ({ readings, newRowId }) => {
                   <td
                     style={{
                       padding: "9px 12px",
-                      borderBottom: "1px solid rgba(173,210,235,0.03)",
+                      borderBottom: "1px solid rgba(59,130,246,0.04)",
                     }}
                   >
                     <PredictionBadge status={row.prediction} />

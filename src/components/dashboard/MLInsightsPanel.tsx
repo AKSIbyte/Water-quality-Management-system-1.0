@@ -4,31 +4,30 @@ export const MLInsightsPanel: React.FC = () => {
   return (
     <div
       style={{
-        background: "rgba(20,24,44,0.85)",
-        border: "1px solid rgba(173,210,235,0.08)",
-        borderRadius: 12,
-        padding: "20px",
+        background: "rgba(15,18,38,0.6)",
+        border: "1px solid rgba(6,182,212,0.1)",
+        borderRadius: 10,
+        padding: "16px",
         backdropFilter: "blur(8px)",
         height: "100%",
       }}
     >
-      <div className="flex items-center gap-2.5 mb-5">
+      <div className="flex items-center gap-2 mb-4">
         <div
           className="flex items-center justify-center rounded-lg"
           style={{
-            width: 36,
-            height: 36,
-            background:
-              "linear-gradient(135deg, rgba(173,210,235,0.15), rgba(220,176,250,0.1))",
-            border: "1px solid rgba(173,210,235,0.2)",
+            width: 32,
+            height: 32,
+            background: "rgba(6,182,212,0.1)",
+            border: "1px solid rgba(6,182,212,0.2)",
           }}
         >
           <svg
-            width="18"
-            height="18"
+            width="16"
+            height="16"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#add2eb"
+            stroke="#06b6d4"
             strokeWidth="2"
           >
             <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -38,9 +37,9 @@ export const MLInsightsPanel: React.FC = () => {
         </div>
         <div>
           <h2
-            className="text-base font-semibold"
+            className="text-sm font-semibold"
             style={{
-              color: "#e8eef5",
+              color: "#f5f7fa",
               fontFamily: "'Space Grotesk', sans-serif",
             }}
           >
@@ -49,32 +48,32 @@ export const MLInsightsPanel: React.FC = () => {
           <p
             className="text-xs"
             style={{
-              color: "#7080a0",
+              color: "#6b7280",
               fontFamily: "'Outfit', sans-serif",
             }}
           >
-            Model performance metrics
+            Model performance
           </p>
         </div>
       </div>
 
       {/* Model info rows */}
       <div className="flex flex-col gap-3">
-        <InfoRow label="Model" value="LSTM" accent="#add2eb" />
-        <InfoRow label="Accuracy" value="91.4%" accent="#add2eb" />
-        <InfoRow label="Last Trained" value="2 hours ago" accent="#7080a0" />
-        <InfoRow label="Parameters" value="2.3M" accent="#7080a0" />
-        <InfoRow label="Sequence Length" value="24 steps" accent="#7080a0" />
-        <InfoRow label="Inference Time" value="~12ms" accent="#add2eb" />
+        <InfoRow label="Model" value="LSTM" accent="#06b6d4" />
+        <InfoRow label="Accuracy" value="91.4%" accent="#06b6d4" />
+        <InfoRow label="Last Trained" value="2 hours ago" accent="#6b7280" />
+        <InfoRow label="Parameters" value="2.3M" accent="#6b7280" />
+        <InfoRow label="Sequence Length" value="24 steps" accent="#6b7280" />
+        <InfoRow label="Inference Time" value="~12ms" accent="#06b6d4" />
       </div>
 
       {/* Accuracy bar */}
-      <div className="mt-5">
-        <div className="flex justify-between mb-1.5">
+      <div className="mt-4">
+        <div className="flex justify-between mb-1">
           <span
             style={{
-              fontSize: 10,
-              color: "#9ca3af",
+              fontSize: 9,
+              color: "#6b7280",
               fontFamily: "'Outfit', sans-serif",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
@@ -84,8 +83,8 @@ export const MLInsightsPanel: React.FC = () => {
           </span>
           <span
             style={{
-              fontSize: 11,
-              color: "#add2eb",
+              fontSize: 10,
+              color: "#06b6d4",
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 600,
             }}
@@ -96,17 +95,17 @@ export const MLInsightsPanel: React.FC = () => {
         <div
           className="rounded-full overflow-hidden"
           style={{
-            height: 6,
-            background: "rgba(173,210,235,0.1)",
+            height: 5,
+            background: "rgba(6,182,212,0.08)",
           }}
         >
           <div
             style={{
               width: "91.4%",
               height: "100%",
-              background: "linear-gradient(90deg, #add2eb, #dcb0fa)",
+              background: "linear-gradient(90deg, #06b6d4, #22d3ee)",
               borderRadius: "9999px",
-              boxShadow: "0 0 8px rgba(173,210,235,0.3)",
+              boxShadow: "0 0 6px rgba(6,182,212,0.2)",
               transition: "width 1s ease",
             }}
           />
@@ -115,11 +114,11 @@ export const MLInsightsPanel: React.FC = () => {
 
       {/* F1 Score bar */}
       <div className="mt-3">
-        <div className="flex justify-between mb-1.5">
+        <div className="flex justify-between mb-1">
           <span
             style={{
-              fontSize: 10,
-              color: "#9ca3af",
+              fontSize: 9,
+              color: "#6b7280",
               fontFamily: "'Outfit', sans-serif",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
@@ -129,8 +128,8 @@ export const MLInsightsPanel: React.FC = () => {
           </span>
           <span
             style={{
-              fontSize: 11,
-              color: "#dcb0fa",
+              fontSize: 10,
+              color: "#f97316",
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 600,
             }}
@@ -141,17 +140,17 @@ export const MLInsightsPanel: React.FC = () => {
         <div
           className="rounded-full overflow-hidden"
           style={{
-            height: 6,
-            background: "rgba(220,176,250,0.1)",
+            height: 5,
+            background: "rgba(249,115,22,0.08)",
           }}
         >
           <div
             style={{
               width: "88.7%",
               height: "100%",
-              background: "linear-gradient(90deg, #dcb0fa, #f97316)",
+              background: "linear-gradient(90deg, #f97316, #fb923c)",
               borderRadius: "9999px",
-              boxShadow: "0 0 8px rgba(220,176,250,0.3)",
+              boxShadow: "0 0 6px rgba(249,115,22,0.2)",
             }}
           />
         </div>
@@ -159,24 +158,24 @@ export const MLInsightsPanel: React.FC = () => {
 
       {/* Status */}
       <div
-        className="mt-4 flex items-center gap-2 rounded-lg px-3 py-2"
+        className="mt-3 flex items-center gap-2 rounded-lg px-2.5 py-1.5"
         style={{
-          background: "rgba(173,210,235,0.08)",
-          border: "1px solid rgba(173,210,235,0.15)",
+          background: "rgba(6,182,212,0.08)",
+          border: "1px solid rgba(6,182,212,0.15)",
         }}
       >
         <div
           className="rounded-full animate-pulse"
-          style={{ width: 6, height: 6, background: "#add2eb" }}
+          style={{ width: 5, height: 5, background: "#06b6d4" }}
         />
         <span
           style={{
-            fontSize: 11,
-            color: "#add2eb",
+            fontSize: 10,
+            color: "#06b6d4",
             fontFamily: "'Outfit', sans-serif",
           }}
         >
-          Model serving — production ready
+          Production ready
         </span>
       </div>
     </div>
@@ -192,7 +191,7 @@ const InfoRow: React.FC<{
     <span
       style={{
         fontSize: 11,
-        color: "#7080a0",
+        color: "#6b7280",
         fontFamily: "'Outfit', sans-serif",
       }}
     >
@@ -200,7 +199,7 @@ const InfoRow: React.FC<{
     </span>
     <span
       style={{
-        fontSize: 12,
+        fontSize: 11,
         color: accent,
         fontFamily: "'JetBrains Mono', monospace",
         fontWeight: 600,

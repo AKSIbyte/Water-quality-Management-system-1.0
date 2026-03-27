@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { LoadingScreen } from "./LoadingScreen";
-import { HeaderBar } from "./HeaderBar";
 import { MetricCards } from "./MetricCards";
 import { ChartPanel } from "./ChartPanel";
 import { AlertsPanel } from "./AlertsPanel";
@@ -136,30 +135,157 @@ const WaterQualityDashboard: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen"
+      className="min-h-screen flex"
       style={{
-        background: "linear-gradient(135deg, #0f1419 0%, #1a1f3a 50%, #151b2f 100%)",
+        background: "#0f1419",
         fontFamily: "'Outfit', sans-serif",
       }}
     >
-      {/* Subtle texture overlay */}
+      {/* Sidebar */}
       <div
         style={{
-          position: "fixed",
-          inset: 0,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")`,
-          pointerEvents: "none",
-          zIndex: 0,
-          opacity: 0.6,
+          width: 240,
+          background: "#0a0d1a",
+          borderRight: "1px solid rgba(255,255,255,0.05)",
+          padding: "24px 16px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "32px",
         }}
-      />
+      >
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <div
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: 8,
+              background: "linear-gradient(135deg, #06b6d4, #0891b2)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 18,
+            }}
+          >
+            💧
+          </div>
+          <span
+            style={{
+              color: "#f5f7fa",
+              fontWeight: 600,
+              fontSize: 14,
+              fontFamily: "'Space Grotesk', sans-serif",
+            }}
+          >
+            AquaSense
+          </span>
+        </div>
 
-      <div style={{ position: "relative", zIndex: 1, display: "flex", minHeight: "100vh", flexDirection: "column" }}>
-        <HeaderBar lastUpdated={lastUpdated} />
+        {/* Navigation */}
+        <nav className="flex flex-col gap-2">
+          {["Dashboard", "Analytics"].map((item, idx) => (
+            <a
+              key={item}
+              href={item === "Analytics" ? "#analytics-section" : "#"}
+              className="px-3 py-2 rounded-lg text-sm transition-all"
+              style={{
+                color: idx === 0 ? "#06b6d4" : "#9ca3af",
+                background: idx === 0 ? "rgba(6,182,212,0.1)" : "transparent",
+                borderLeft: idx === 0 ? "3px solid #06b6d4" : "3px solid transparent",
+                paddingLeft: idx === 0 ? "12px" : "15px",
+                fontFamily: "'Outfit', sans-serif",
+              }}
+            >
+              {item}
+            </a>
+          ))}
+        </nav>
+      </div>
 
-        <main className="px-6 py-5" style={{ maxWidth: 1600, margin: "0 auto" }}>
-          {/* Metric Cards */}
-          <section className="mb-5">
+      {/* Main Content */}
+      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        {/* Header */}
+        <div
+          style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 40,
+            background: "#0f1419",
+            borderBottom: "1px solid rgba(255,255,255,0.05)",
+            padding: "20px 32px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            backdropFilter: "blur(20px)",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+          }}
+        >
+          <div>
+<h1
+              style={{
+                color: "#f5f7fa",
+                fontSize: 28,
+                fontWeight: 600,
+                fontFamily: "'Space Grotesk', sans-serif",
+                margin: 0,
+              }}
+            >
+              Monitoring System
+            </h1>
+            <p
+              style={{
+                color: "#6b7280",
+                fontSize: 12,
+                marginTop: 4,
+                fontFamily: "'Outfit', sans-serif",
+              }}
+            >
+              Here's what's happening with your water systems
+            </p>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <p
+              style={{
+                color: "#9ca3af",
+                fontSize: 12,
+                margin: "0 0 4px 0",
+                fontFamily: "'JetBrains Mono', monospace",
+              }}
+            >
+              {lastUpdated}
+            </p>
+            <div className="flex items-center gap-1.5">
+              <div
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: "50%",
+                  backgroundColor: "#10b981",
+                }}
+              />
+              <span
+                style={{
+                  color: "#10b981",
+                  fontSize: 12,
+                  fontFamily: "'Outfit', sans-serif",
+                }}
+              >
+                All systems online
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Scrollable Content */}
+        <main
+          style={{
+            flex: 1,
+            overflow: "auto",
+            padding: "24px 32px",
+          }}
+        >
+          {/* Metric Cards Row */}
+          <section className="mb-8">
             <MetricCards
               metrics={metrics}
               deltas={deltas}
@@ -167,8 +293,9 @@ const WaterQualityDashboard: React.FC = () => {
             />
           </section>
 
-          {/* Chart + Alerts row */}
-          <section className="grid gap-4 mb-4" style={{ gridTemplateColumns: "1fr 300px" }}>
+          {/* Charts Grid */}
+          <section className="grid gap-6 mb-8" style={{ gridTemplateColumns: "2fr 1fr" }}>
+            {/* Main Chart */}
             <div
               style={{
                 opacity: visible ? 1 : 0,
@@ -182,6 +309,8 @@ const WaterQualityDashboard: React.FC = () => {
                 onParamChange={handleParamChange}
               />
             </div>
+
+            {/* Alerts */}
             <div
               style={{
                 opacity: visible ? 1 : 0,
@@ -193,8 +322,8 @@ const WaterQualityDashboard: React.FC = () => {
             </div>
           </section>
 
-          {/* Table + ML Insights row */}
-          <section className="grid gap-4" style={{ gridTemplateColumns: "1fr 280px" }}>
+          {/* Bottom Section */}
+          <section className="grid gap-6 mb-8" style={{ gridTemplateColumns: "1fr 1fr" }}>
             <div
               style={{
                 opacity: visible ? 1 : 0,
@@ -214,24 +343,114 @@ const WaterQualityDashboard: React.FC = () => {
               <MLInsightsPanel />
             </div>
           </section>
-        </main>
 
-        {/* Footer */}
-        <footer
-          className="px-6 py-4 mt-4 text-center"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
-        >
-          <p
-            style={{
-              color: "rgba(255,255,255,0.2)",
-              fontSize: 11,
-              fontFamily: "'Outfit', sans-serif",
-              letterSpacing: "0.1em",
-            }}
-          >
-            AI Water Quality Monitoring System — LSTM Predictive Engine v2.1 — Simulated Data for Research Purposes
-          </p>
-        </footer>
+          {/* Analytics Section */}
+          <section id="analytics-section" className="mt-12 pt-8" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            <h2
+              style={{
+                color: "#f5f7fa",
+                fontSize: 24,
+                fontWeight: 600,
+                fontFamily: "'Space Grotesk', sans-serif",
+                marginBottom: 24,
+              }}
+            >
+              Analytics Overview
+            </h2>
+            <div className="grid gap-6" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>
+              <div
+                style={{
+                  background: "rgba(15,18,38,0.6)",
+                  border: "1px solid rgba(6,182,212,0.1)",
+                  borderRadius: 12,
+                  padding: 24,
+                }}
+              >
+                <p
+                  style={{
+                    color: "#9ca3af",
+                    fontSize: 12,
+                    fontFamily: "'Outfit', sans-serif",
+                    marginBottom: 12,
+                  }}
+                >
+                  TOTAL READINGS
+                </p>
+                <p
+                  style={{
+                    color: "#06b6d4",
+                    fontSize: 32,
+                    fontWeight: 700,
+                    fontFamily: "'JetBrains Mono', monospace",
+                    margin: 0,
+                  }}
+                >
+                  {readings.length}
+                </p>
+              </div>
+              <div
+                style={{
+                  background: "rgba(15,18,38,0.6)",
+                  border: "1px solid rgba(249,115,22,0.1)",
+                  borderRadius: 12,
+                  padding: 24,
+                }}
+              >
+                <p
+                  style={{
+                    color: "#9ca3af",
+                    fontSize: 12,
+                    fontFamily: "'Outfit', sans-serif",
+                    marginBottom: 12,
+                  }}
+                >
+                  ACTIVE ALERTS
+                </p>
+                <p
+                  style={{
+                    color: "#f97316",
+                    fontSize: 32,
+                    fontWeight: 700,
+                    fontFamily: "'JetBrains Mono', monospace",
+                    margin: 0,
+                  }}
+                >
+                  {alerts.length}
+                </p>
+              </div>
+              <div
+                style={{
+                  background: "rgba(15,18,38,0.6)",
+                  border: "1px solid rgba(168,85,247,0.1)",
+                  borderRadius: 12,
+                  padding: 24,
+                }}
+              >
+                <p
+                  style={{
+                    color: "#9ca3af",
+                    fontSize: 12,
+                    fontFamily: "'Outfit', sans-serif",
+                    marginBottom: 12,
+                  }}
+                >
+                  MODEL ACCURACY
+                </p>
+                <p
+                  style={{
+                    color: "#a855f7",
+                    fontSize: 32,
+                    fontWeight: 700,
+                    fontFamily: "'JetBrains Mono', monospace",
+                    margin: 0,
+                  }}
+                >
+                  91.4%
+                </p>
+              </div>
+            </div>
+          </section>
+        </main>
       </div>
     </div>
   );
