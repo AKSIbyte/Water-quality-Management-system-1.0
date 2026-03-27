@@ -13,11 +13,11 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
   return (
     <div
       style={{
-        background: "rgba(255,255,255,0.03)",
-        border: "1px solid rgba(255,255,255,0.08)",
-        borderRadius: 16,
+        background: "rgba(255,255,255,0.85)",
+        border: "1px solid rgba(0,0,0,0.05)",
+        borderRadius: 12,
         padding: "20px",
-        backdropFilter: "blur(12px)",
+        backdropFilter: "blur(8px)",
         height: "100%",
       }}
     >
@@ -26,7 +26,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
           <h2
             className="text-base font-semibold"
             style={{
-              color: "#ffffff",
+              color: "#1f2937",
               fontFamily: "'Space Grotesk', sans-serif",
             }}
           >
@@ -35,7 +35,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
           <p
             className="text-xs mt-0.5"
             style={{
-              color: "rgba(255,255,255,0.35)",
+              color: "#9ca3af",
               fontFamily: "'Outfit', sans-serif",
             }}
           >
@@ -46,9 +46,9 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
           className="flex items-center justify-center rounded-full w-7 h-7 text-xs font-bold"
           style={{
             background:
-              alerts.length > 0 ? "rgba(255,61,87,0.15)" : "rgba(255,255,255,0.06)",
-            color: alerts.length > 0 ? "#ff3d57" : "rgba(255,255,255,0.3)",
-            border: `1px solid ${alerts.length > 0 ? "rgba(255,61,87,0.3)" : "rgba(255,255,255,0.1)"}`,
+              alerts.length > 0 ? "rgba(220,38,38,0.1)" : "rgba(0,0,0,0.04)",
+            color: alerts.length > 0 ? "#dc2626" : "#9ca3af",
+            border: `1px solid ${alerts.length > 0 ? "rgba(220,38,38,0.2)" : "rgba(0,0,0,0.05)"}`,
             fontFamily: "'JetBrains Mono', monospace",
           }}
         >
@@ -60,7 +60,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
         {alerts.length === 0 ? (
           <div
             className="flex flex-col items-center justify-center py-8"
-            style={{ color: "rgba(255,255,255,0.2)" }}
+            style={{ color: "#d1d5db" }}
           >
             <svg
               width="32"
@@ -78,7 +78,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
             <p
               className="text-xs"
               style={{
-                color: "rgba(34,197,94,0.6)",
+                color: "#16a34a",
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
@@ -112,13 +112,13 @@ const AlertBox: React.FC<{
   };
 
   const isAlert = alert.type === "alert";
-  const color = isAlert ? "#ff3d57" : "#ffb300";
+  const color = isAlert ? "#dc2626" : "#b45309";
   const bgColor = isAlert
-    ? "rgba(255,61,87,0.08)"
-    : "rgba(255,179,0,0.08)";
+    ? "rgba(220,38,38,0.08)"
+    : "rgba(180,83,9,0.08)";
   const borderColor = isAlert
-    ? "rgba(255,61,87,0.25)"
-    : "rgba(255,179,0,0.25)";
+    ? "rgba(220,38,38,0.15)"
+    : "rgba(180,83,9,0.15)";
 
   return (
     <div
@@ -154,7 +154,7 @@ const AlertBox: React.FC<{
             <p
               className="text-xs mt-0.5"
               style={{
-                color: "rgba(255,255,255,0.55)",
+                color: "#6b7280",
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
@@ -163,7 +163,7 @@ const AlertBox: React.FC<{
             <p
               className="text-xs mt-1.5"
               style={{
-                color: "rgba(255,255,255,0.25)",
+                color: "#d1d5db",
                 fontFamily: "'JetBrains Mono', monospace",
               }}
             >
@@ -174,7 +174,7 @@ const AlertBox: React.FC<{
         <button
           onClick={handleDismiss}
           style={{
-            color: "rgba(255,255,255,0.3)",
+            color: "#9ca3af",
             background: "none",
             border: "none",
             cursor: "pointer",
@@ -185,10 +185,10 @@ const AlertBox: React.FC<{
             transition: "color 0.2s",
           }}
           onMouseEnter={(e) =>
-            ((e.target as HTMLButtonElement).style.color = "rgba(255,255,255,0.8)")
+            ((e.target as HTMLButtonElement).style.color = "#374151")
           }
           onMouseLeave={(e) =>
-            ((e.target as HTMLButtonElement).style.color = "rgba(255,255,255,0.3)")
+            ((e.target as HTMLButtonElement).style.color = "#9ca3af")
           }
         >
           ✕

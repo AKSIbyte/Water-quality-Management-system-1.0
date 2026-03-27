@@ -9,9 +9,9 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ lastUpdated }) => {
     <header
       className="flex items-center justify-between px-6 py-4"
       style={{
-        background: "rgba(255,255,255,0.03)",
-        borderBottom: "1px solid rgba(255,255,255,0.07)",
-        backdropFilter: "blur(12px)",
+        background: "rgba(255,255,255,0.7)",
+        borderBottom: "1px solid rgba(0,0,0,0.05)",
+        backdropFilter: "blur(8px)",
         position: "sticky",
         top: 0,
         zIndex: 40,
@@ -24,15 +24,14 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ lastUpdated }) => {
           style={{
             width: 40,
             height: 40,
-            background:
-              "linear-gradient(135deg, rgba(0,229,255,0.2), rgba(167,139,250,0.2))",
-            border: "1px solid rgba(0,229,255,0.3)",
+            background: "linear-gradient(135deg, rgba(15,118,110,0.15), rgba(59,130,246,0.15))",
+            border: "1px solid rgba(15,118,110,0.2)",
           }}
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
             <path
               d="M12 2C12 2 5 9.5 5 14.5C5 18.09 8.13 21 12 21C15.87 21 19 18.09 19 14.5C19 9.5 12 2 12 2Z"
-              fill="#00e5ff"
+              fill="#0f766e"
             />
           </svg>
         </div>
@@ -41,18 +40,18 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ lastUpdated }) => {
           <h1
             className="text-xl font-bold tracking-wide leading-none"
             style={{
-              color: "#ffffff",
+              color: "#1f2937",
               fontFamily: "'Space Grotesk', sans-serif",
               letterSpacing: "0.04em",
             }}
           >
-            AI Water Quality{" "}
-            <span style={{ color: "#00e5ff" }}>Monitoring System</span>
+            Water Quality{" "}
+            <span style={{ color: "#0f766e" }}>Monitoring System</span>
           </h1>
           <p
             className="text-xs mt-0.5"
             style={{
-              color: "rgba(255,255,255,0.35)",
+              color: "#9ca3af",
               fontFamily: "'Outfit', sans-serif",
             }}
           >
@@ -80,7 +79,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ lastUpdated }) => {
                 width: 8,
                 height: 8,
                 backgroundColor: "#22c55e",
-                boxShadow: "0 0 8px rgba(34,197,94,0.8)",
+                boxShadow: "0 0 8px rgba(34,197,94,0.6)",
               }}
             />
           </div>
@@ -100,7 +99,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ lastUpdated }) => {
           style={{
             width: 1,
             height: 28,
-            background: "rgba(255,255,255,0.1)",
+            background: "rgba(0,0,0,0.08)",
           }}
         />
 
@@ -109,7 +108,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ lastUpdated }) => {
           <p
             className="text-xs"
             style={{
-              color: "rgba(255,255,255,0.35)",
+              color: "#9ca3af",
               fontFamily: "'Outfit', sans-serif",
             }}
           >
@@ -118,7 +117,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ lastUpdated }) => {
           <p
             className="text-sm font-medium"
             style={{
-              color: "rgba(255,255,255,0.7)",
+              color: "#374151",
               fontFamily: "'JetBrains Mono', monospace",
             }}
           >
@@ -131,8 +130,8 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ lastUpdated }) => {
           className="px-3 py-1.5 rounded-full text-xs font-medium"
           style={{
             background: "rgba(34,197,94,0.1)",
-            border: "1px solid rgba(34,197,94,0.25)",
-            color: "#22c55e",
+            border: "1px solid rgba(34,197,94,0.3)",
+            color: "#16a34a",
             fontFamily: "'Outfit', sans-serif",
           }}
         >

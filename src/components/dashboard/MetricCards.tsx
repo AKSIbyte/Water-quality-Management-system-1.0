@@ -15,33 +15,33 @@ interface MetricCardProps {
 
 const statusColors = {
   safe: {
-    accent: "#00e5ff",
-    bg: "rgba(0,229,255,0.06)",
-    border: "rgba(0,229,255,0.2)",
-    glow: "rgba(0,229,255,0.15)",
-    badge: "rgba(0,229,255,0.15)",
-    badgeText: "#00e5ff",
-    badgeBorder: "rgba(0,229,255,0.3)",
+    accent: "#0f766e",
+    bg: "rgba(15,118,110,0.05)",
+    border: "rgba(15,118,110,0.15)",
+    glow: "rgba(15,118,110,0.08)",
+    badge: "rgba(15,118,110,0.1)",
+    badgeText: "#0f766e",
+    badgeBorder: "rgba(15,118,110,0.2)",
     label: "OPTIMAL",
   },
   warning: {
-    accent: "#ffb300",
-    bg: "rgba(255,179,0,0.06)",
-    border: "rgba(255,179,0,0.25)",
-    glow: "rgba(255,179,0,0.15)",
-    badge: "rgba(255,179,0,0.15)",
-    badgeText: "#ffb300",
-    badgeBorder: "rgba(255,179,0,0.3)",
+    accent: "#b45309",
+    bg: "rgba(180,83,9,0.05)",
+    border: "rgba(180,83,9,0.15)",
+    glow: "rgba(180,83,9,0.08)",
+    badge: "rgba(180,83,9,0.1)",
+    badgeText: "#b45309",
+    badgeBorder: "rgba(180,83,9,0.2)",
     label: "WARNING",
   },
   alert: {
-    accent: "#ff3d57",
-    bg: "rgba(255,61,87,0.06)",
-    border: "rgba(255,61,87,0.25)",
-    glow: "rgba(255,61,87,0.15)",
-    badge: "rgba(255,61,87,0.15)",
-    badgeText: "#ff3d57",
-    badgeBorder: "rgba(255,61,87,0.3)",
+    accent: "#dc2626",
+    bg: "rgba(220,38,38,0.05)",
+    border: "rgba(220,38,38,0.15)",
+    glow: "rgba(220,38,38,0.08)",
+    badge: "rgba(220,38,38,0.1)",
+    badgeText: "#dc2626",
+    badgeBorder: "rgba(220,38,38,0.2)",
     label: "ALERT",
   },
 };
@@ -67,17 +67,17 @@ const MetricCard: React.FC<MetricCardProps> = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? colors.bg : "rgba(255,255,255,0.03)",
-        border: `1px solid ${hovered ? colors.border : "rgba(255,255,255,0.08)"}`,
-        borderRadius: 16,
+        background: hovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.85)",
+        border: `1px solid ${hovered ? "rgba(15,118,110,0.2)" : "rgba(0,0,0,0.05)"}`,
+        borderRadius: 12,
         padding: "20px 20px",
         transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         transform: hovered ? "translateY(-4px)" : isVisible ? "translateY(0)" : "translateY(20px)",
         opacity: isVisible ? 1 : 0,
-        backdropFilter: "blur(12px)",
+        backdropFilter: "blur(8px)",
         boxShadow: hovered
-          ? `0 8px 32px ${colors.glow}, 0 0 0 1px ${colors.border}`
-          : "0 2px 8px rgba(0,0,0,0.3)",
+          ? "0 16px 24px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.05)"
+          : "0 2px 12px rgba(0,0,0,0.04)",
         transitionDelay: isVisible ? `${delay}ms` : "0ms",
         cursor: "default",
       }}
@@ -123,7 +123,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
       <p
         className="text-xs mb-1"
         style={{
-          color: "rgba(255,255,255,0.45)",
+          color: "#6b7280",
           fontFamily: "'Outfit', sans-serif",
           letterSpacing: "0.12em",
           textTransform: "uppercase",
@@ -139,7 +139,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
           style={{
             color: colors.accent,
             fontFamily: "'JetBrains Mono', monospace",
-            textShadow: `0 0 20px ${colors.glow}`,
+            textShadow: "none",
           }}
         >
           {value}
@@ -147,7 +147,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
         <span
           className="text-sm mb-0.5"
           style={{
-            color: "rgba(255,255,255,0.4)",
+            color: "#9ca3af",
             fontFamily: "'Outfit', sans-serif",
           }}
         >
@@ -160,7 +160,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
         <span
           className="text-sm font-semibold"
           style={{
-            color: trendGood ? "#22c55e" : "#ff3d57",
+            color: trendGood ? "#16a34a" : "#dc2626",
             fontFamily: "'JetBrains Mono', monospace",
           }}
         >
@@ -168,7 +168,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
         </span>
         <span
           className="text-xs"
-          style={{ color: "rgba(255,255,255,0.3)", fontFamily: "'Outfit', sans-serif" }}
+          style={{ color: "#d1d5db", fontFamily: "'Outfit', sans-serif" }}
         >
           vs last reading
         </span>

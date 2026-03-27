@@ -13,7 +13,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
   return (
     <div
       className="fixed inset-0 flex flex-col items-center justify-center z-50"
-      style={{ background: "linear-gradient(135deg, #0a0f1e 0%, #0d1b2a 100%)" }}
+      style={{ background: "linear-gradient(135deg, #f8f9fa 0%, #e8f1f8 100%)" }}
     >
       {/* Water ripple rings */}
       <div className="relative flex items-center justify-center mb-8">
@@ -22,7 +22,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
           style={{
             width: 120,
             height: 120,
-            borderColor: "rgba(0,229,255,0.3)",
+            borderColor: "rgba(15,118,110,0.3)",
             animationDuration: "1.4s",
           }}
         />
@@ -31,7 +31,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
           style={{
             width: 90,
             height: 90,
-            borderColor: "rgba(0,229,255,0.5)",
+            borderColor: "rgba(15,118,110,0.5)",
             animationDuration: "1.4s",
             animationDelay: "0.3s",
           }}
@@ -41,7 +41,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
           style={{
             width: 60,
             height: 60,
-            borderColor: "rgba(0,229,255,0.7)",
+            borderColor: "rgba(15,118,110,0.7)",
             animationDuration: "1.4s",
             animationDelay: "0.6s",
           }}
@@ -53,14 +53,14 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
             width: 56,
             height: 56,
             background:
-              "radial-gradient(circle at 40% 35%, rgba(0,229,255,0.9), rgba(0,100,180,0.8))",
-            boxShadow: "0 0 30px rgba(0,229,255,0.6), 0 0 60px rgba(0,229,255,0.3)",
+              "radial-gradient(circle at 40% 35%, rgba(15,118,110,0.9), rgba(5,150,100,0.8))",
+            boxShadow: "0 0 30px rgba(15,118,110,0.4), 0 0 60px rgba(15,118,110,0.2)",
           }}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
             <path
               d="M12 2C12 2 5 9.5 5 14.5C5 18.09 8.13 21 12 21C15.87 21 19 18.09 19 14.5C19 9.5 12 2 12 2Z"
-              fill="rgba(255,255,255,0.9)"
+              fill="rgba(255,255,255,0.95)"
             />
           </svg>
         </div>
@@ -69,18 +69,18 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
       <h1
         className="text-3xl font-bold tracking-widest mb-2"
         style={{
-          color: "#00e5ff",
-          textShadow: "0 0 20px rgba(0,229,255,0.5)",
+          color: "#0f766e",
+          textShadow: "0 0 20px rgba(15,118,110,0.2)",
           fontFamily: "'Space Grotesk', sans-serif",
           letterSpacing: "0.15em",
         }}
       >
-        AI WATER QUALITY
+        WATER QUALITY
       </h1>
       <p
         className="text-sm tracking-widest mb-8"
         style={{
-          color: "rgba(255,255,255,0.4)",
+          color: "#6b7280",
           fontFamily: "'Outfit', sans-serif",
           letterSpacing: "0.3em",
           textTransform: "uppercase",
@@ -95,14 +95,14 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
         style={{
           width: 200,
           height: 3,
-          background: "rgba(255,255,255,0.08)",
+          background: "rgba(0,0,0,0.08)",
         }}
       >
         <div
           className="absolute inset-y-0 left-0 rounded-full"
           style={{
-            background: "linear-gradient(90deg, #00e5ff, #a78bfa)",
-            boxShadow: "0 0 8px rgba(0,229,255,0.6)",
+            background: "linear-gradient(90deg, #0f766e, #3b82f6)",
+            boxShadow: "0 0 8px rgba(15,118,110,0.4)",
             animation: "loading-progress 1.6s ease-in-out forwards",
           }}
         />
@@ -110,8 +110,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
 
       <p
         className="mt-4 text-xs"
-        style={{ color: "rgba(255,255,255,0.25)", letterSpacing: "0.15em" }}
-      >
+        style={{ color: "#9ca3af", letterSpacing: "0.15em" }}>
         INITIALIZING SENSORS...
       </p>
 
