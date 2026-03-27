@@ -46,17 +46,17 @@ const CustomTooltip = ({
   return (
     <div
       style={{
-        background: "rgba(255,255,255,0.95)",
-        border: "1px solid rgba(0,0,0,0.08)",
+        background: "rgba(20,24,44,0.95)",
+        border: "1px solid rgba(173,210,235,0.15)",
         borderRadius: 8,
         padding: "10px 14px",
         backdropFilter: "blur(8px)",
-        boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
       }}
     >
       <p
         style={{
-          color: "#6b7280",
+          color: "#9ca3af",
           fontSize: 11,
           marginBottom: 6,
           fontFamily: "'Outfit', sans-serif",
@@ -76,7 +76,7 @@ const CustomTooltip = ({
           />
           <span
             style={{
-              color: "#6b7280",
+              color: "#7080a0",
               fontSize: 11,
               fontFamily: "'Outfit', sans-serif",
               marginRight: 4,
@@ -86,7 +86,7 @@ const CustomTooltip = ({
           </span>
           <span
             style={{
-              color: "#1f2937",
+              color: "#e8eef5",
               fontSize: 12,
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 600,
@@ -110,8 +110,8 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
   return (
     <div
       style={{
-        background: "rgba(255,255,255,0.85)",
-        border: "1px solid rgba(0,0,0,0.05)",
+        background: "rgba(20,24,44,0.85)",
+        border: "1px solid rgba(173,210,235,0.08)",
         borderRadius: 12,
         padding: "20px 24px",
         backdropFilter: "blur(8px)",
@@ -123,7 +123,7 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
           <h2
             className="text-base font-semibold"
             style={{
-              color: "#1f2937",
+              color: "#e8eef5",
               fontFamily: "'Space Grotesk', sans-serif",
             }}
           >
@@ -132,7 +132,7 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
           <p
             className="text-xs mt-0.5"
             style={{
-              color: "#9ca3af",
+              color: "#7080a0",
               fontFamily: "'Outfit', sans-serif",
             }}
           >
@@ -143,7 +143,7 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
         {/* Parameter toggle pills */}
         <div
           className="flex items-center gap-1 rounded-full p-1"
-          style={{ background: "rgba(0,0,0,0.04)" }}
+          style={{ background: "rgba(173,210,235,0.05)" }}
         >
           {params.map((p) => (
             <button
@@ -161,16 +161,16 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
                 border: "none",
                 background:
                   activeParam === p.key
-                    ? "linear-gradient(135deg, rgba(15,118,110,0.15), rgba(59,130,246,0.15))"
+                    ? "linear-gradient(135deg, rgba(173,210,235,0.2), rgba(220,176,250,0.2))"
                     : "transparent",
-                color: activeParam === p.key ? "#0f766e" : "#9ca3af",
+                color: activeParam === p.key ? "#add2eb" : "#7080a0",
                 boxShadow:
                   activeParam === p.key
-                    ? "0 0 12px rgba(15,118,110,0.15)"
+                    ? "0 0 12px rgba(173,210,235,0.15)"
                     : "none",
                 outline:
                   activeParam === p.key
-                    ? "1px solid rgba(15,118,110,0.2)"
+                    ? "1px solid rgba(173,210,235,0.2)"
                     : "none",
               }}
             >
@@ -185,36 +185,36 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
         <AreaChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
           <defs>
             <linearGradient id="historicalGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#0f766e" stopOpacity={0.2} />
-              <stop offset="95%" stopColor="#0f766e" stopOpacity={0} />
+              <stop offset="5%" stopColor="#add2eb" stopOpacity={0.2} />
+              <stop offset="95%" stopColor="#add2eb" stopOpacity={0} />
             </linearGradient>
             <linearGradient id="predictedGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.12} />
-              <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+              <stop offset="5%" stopColor="#dcb0fa" stopOpacity={0.12} />
+              <stop offset="95%" stopColor="#dcb0fa" stopOpacity={0} />
             </linearGradient>
           </defs>
 
           <CartesianGrid
             strokeDasharray="3 3"
-            stroke="rgba(0,0,0,0.04)"
+            stroke="rgba(173,210,235,0.04)"
             vertical={false}
           />
 
           <XAxis
             dataKey="time"
             tick={{
-              fill: "#9ca3af",
+              fill: "#7080a0",
               fontSize: 10,
               fontFamily: "'JetBrains Mono', monospace",
             }}
-            axisLine={{ stroke: "rgba(0,0,0,0.06)" }}
+            axisLine={{ stroke: "rgba(173,210,235,0.06)" }}
             tickLine={false}
             interval={1}
           />
 
           <YAxis
             tick={{
-              fill: "#9ca3af",
+              fill: "#7080a0",
               fontSize: 10,
               fontFamily: "'JetBrains Mono', monospace",
             }}
@@ -225,7 +225,7 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
 
           <Tooltip
             content={<CustomTooltip unit={unit} />}
-            cursor={{ stroke: "rgba(0,0,0,0.08)", strokeWidth: 1 }}
+            cursor={{ stroke: "rgba(173,210,235,0.08)", strokeWidth: 1 }}
           />
 
           <Legend
@@ -235,7 +235,7 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
               fontSize: 12,
             }}
             formatter={(value) => (
-              <span style={{ color: "#6b7280" }}>{value}</span>
+              <span style={{ color: "#9ca3af" }}>{value}</span>
             )}
           />
 
@@ -243,23 +243,23 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
             type="monotone"
             dataKey="historical"
             name="Historical"
-            stroke="#0f766e"
+            stroke="#add2eb"
             strokeWidth={2.5}
             fill="url(#historicalGrad)"
-            dot={{ fill: "#0f766e", r: 3, strokeWidth: 0 }}
-            activeDot={{ r: 5, fill: "#0f766e", strokeWidth: 0 }}
+            dot={{ fill: "#add2eb", r: 3, strokeWidth: 0 }}
+            activeDot={{ r: 5, fill: "#add2eb", strokeWidth: 0 }}
           />
 
           <Area
             type="monotone"
             dataKey="predicted"
             name="Predicted"
-            stroke="#3b82f6"
+            stroke="#dcb0fa"
             strokeWidth={2}
             strokeDasharray="6 3"
             fill="url(#predictedGrad)"
-            dot={{ fill: "#3b82f6", r: 3, strokeWidth: 0 }}
-            activeDot={{ r: 5, fill: "#3b82f6", strokeWidth: 0 }}
+            dot={{ fill: "#dcb0fa", r: 3, strokeWidth: 0 }}
+            activeDot={{ r: 5, fill: "#dcb0fa", strokeWidth: 0 }}
           />
         </AreaChart>
       </ResponsiveContainer>

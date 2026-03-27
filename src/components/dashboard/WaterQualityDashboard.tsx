@@ -138,7 +138,7 @@ const WaterQualityDashboard: React.FC = () => {
     <div
       className="min-h-screen"
       style={{
-        background: "linear-gradient(135deg, #f8f9fa 0%, #e8f1f8 50%, #dfe9f0 100%)",
+        background: "linear-gradient(135deg, #0f1419 0%, #1a1f3a 50%, #151b2f 100%)",
         fontFamily: "'Outfit', sans-serif",
       }}
     >
@@ -147,14 +147,14 @@ const WaterQualityDashboard: React.FC = () => {
         style={{
           position: "fixed",
           inset: 0,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")`,
           pointerEvents: "none",
           zIndex: 0,
-          opacity: 0.5,
+          opacity: 0.6,
         }}
       />
 
-      <div style={{ position: "relative", zIndex: 1 }}>
+      <div style={{ position: "relative", zIndex: 1, display: "flex", minHeight: "100vh", flexDirection: "column" }}>
         <HeaderBar lastUpdated={lastUpdated} />
 
         <main className="px-6 py-5" style={{ maxWidth: 1600, margin: "0 auto" }}>

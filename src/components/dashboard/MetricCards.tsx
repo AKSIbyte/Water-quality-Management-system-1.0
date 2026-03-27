@@ -15,33 +15,33 @@ interface MetricCardProps {
 
 const statusColors = {
   safe: {
-    accent: "#0f766e",
-    bg: "rgba(15,118,110,0.05)",
-    border: "rgba(15,118,110,0.15)",
-    glow: "rgba(15,118,110,0.08)",
-    badge: "rgba(15,118,110,0.1)",
-    badgeText: "#0f766e",
-    badgeBorder: "rgba(15,118,110,0.2)",
+    accent: "#add2eb",
+    bg: "rgba(173,210,235,0.08)",
+    border: "rgba(173,210,235,0.2)",
+    glow: "rgba(173,210,235,0.12)",
+    badge: "rgba(173,210,235,0.12)",
+    badgeText: "#add2eb",
+    badgeBorder: "rgba(173,210,235,0.25)",
     label: "OPTIMAL",
   },
   warning: {
-    accent: "#b45309",
-    bg: "rgba(180,83,9,0.05)",
-    border: "rgba(180,83,9,0.15)",
-    glow: "rgba(180,83,9,0.08)",
-    badge: "rgba(180,83,9,0.1)",
-    badgeText: "#b45309",
-    badgeBorder: "rgba(180,83,9,0.2)",
+    accent: "#dcb0fa",
+    bg: "rgba(220,176,250,0.08)",
+    border: "rgba(220,176,250,0.2)",
+    glow: "rgba(220,176,250,0.12)",
+    badge: "rgba(220,176,250,0.12)",
+    badgeText: "#dcb0fa",
+    badgeBorder: "rgba(220,176,250,0.25)",
     label: "WARNING",
   },
   alert: {
-    accent: "#dc2626",
-    bg: "rgba(220,38,38,0.05)",
-    border: "rgba(220,38,38,0.15)",
-    glow: "rgba(220,38,38,0.08)",
-    badge: "rgba(220,38,38,0.1)",
-    badgeText: "#dc2626",
-    badgeBorder: "rgba(220,38,38,0.2)",
+    accent: "#f97316",
+    bg: "rgba(249,115,22,0.08)",
+    border: "rgba(249,115,22,0.2)",
+    glow: "rgba(249,115,22,0.12)",
+    badge: "rgba(249,115,22,0.12)",
+    badgeText: "#f97316",
+    badgeBorder: "rgba(249,115,22,0.25)",
     label: "ALERT",
   },
 };
@@ -67,8 +67,8 @@ const MetricCard: React.FC<MetricCardProps> = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.85)",
-        border: `1px solid ${hovered ? "rgba(15,118,110,0.2)" : "rgba(0,0,0,0.05)"}`,
+        background: hovered ? "rgba(26,31,58,0.95)" : "rgba(20,24,44,0.85)",
+        border: `1px solid ${hovered ? colors.border : "rgba(173,210,235,0.08)"}`,
         borderRadius: 12,
         padding: "20px 20px",
         transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -76,8 +76,8 @@ const MetricCard: React.FC<MetricCardProps> = ({
         opacity: isVisible ? 1 : 0,
         backdropFilter: "blur(8px)",
         boxShadow: hovered
-          ? "0 16px 24px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.05)"
-          : "0 2px 12px rgba(0,0,0,0.04)",
+          ? `0 16px 32px rgba(0,0,0,0.3), 0 0 0 1px ${colors.border}`
+          : "0 2px 12px rgba(0,0,0,0.2)",
         transitionDelay: isVisible ? `${delay}ms` : "0ms",
         cursor: "default",
       }}
@@ -123,7 +123,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
       <p
         className="text-xs mb-1"
         style={{
-          color: "#6b7280",
+          color: "#9ca3af",
           fontFamily: "'Outfit', sans-serif",
           letterSpacing: "0.12em",
           textTransform: "uppercase",
@@ -147,7 +147,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
         <span
           className="text-sm mb-0.5"
           style={{
-            color: "#9ca3af",
+            color: "#6b7280",
             fontFamily: "'Outfit', sans-serif",
           }}
         >
@@ -160,7 +160,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
         <span
           className="text-sm font-semibold"
           style={{
-            color: trendGood ? "#16a34a" : "#dc2626",
+            color: trendGood ? "#10b981" : "#f97316",
             fontFamily: "'JetBrains Mono', monospace",
           }}
         >
@@ -168,7 +168,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
         </span>
         <span
           className="text-xs"
-          style={{ color: "#d1d5db", fontFamily: "'Outfit', sans-serif" }}
+          style={{ color: "#4b5563", fontFamily: "'Outfit', sans-serif" }}
         >
           vs last reading
         </span>

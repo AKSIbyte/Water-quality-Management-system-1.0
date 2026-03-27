@@ -4,8 +4,8 @@ export const MLInsightsPanel: React.FC = () => {
   return (
     <div
       style={{
-        background: "rgba(255,255,255,0.85)",
-        border: "1px solid rgba(0,0,0,0.05)",
+        background: "rgba(20,24,44,0.85)",
+        border: "1px solid rgba(173,210,235,0.08)",
         borderRadius: 12,
         padding: "20px",
         backdropFilter: "blur(8px)",
@@ -19,8 +19,8 @@ export const MLInsightsPanel: React.FC = () => {
             width: 36,
             height: 36,
             background:
-              "linear-gradient(135deg, rgba(59,130,246,0.15), rgba(15,118,110,0.1))",
-            border: "1px solid rgba(59,130,246,0.2)",
+              "linear-gradient(135deg, rgba(173,210,235,0.15), rgba(220,176,250,0.1))",
+            border: "1px solid rgba(173,210,235,0.2)",
           }}
         >
           <svg
@@ -28,7 +28,7 @@ export const MLInsightsPanel: React.FC = () => {
             height="18"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#3b82f6"
+            stroke="#add2eb"
             strokeWidth="2"
           >
             <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -40,7 +40,7 @@ export const MLInsightsPanel: React.FC = () => {
           <h2
             className="text-base font-semibold"
             style={{
-              color: "#1f2937",
+              color: "#e8eef5",
               fontFamily: "'Space Grotesk', sans-serif",
             }}
           >
@@ -49,7 +49,7 @@ export const MLInsightsPanel: React.FC = () => {
           <p
             className="text-xs"
             style={{
-              color: "#9ca3af",
+              color: "#7080a0",
               fontFamily: "'Outfit', sans-serif",
             }}
           >
@@ -60,12 +60,12 @@ export const MLInsightsPanel: React.FC = () => {
 
       {/* Model info rows */}
       <div className="flex flex-col gap-3">
-        <InfoRow label="Model" value="LSTM" accent="#3b82f6" />
-        <InfoRow label="Accuracy" value="91.4%" accent="#0f766e" />
-        <InfoRow label="Last Trained" value="2 hours ago" accent="#6b7280" />
-        <InfoRow label="Parameters" value="2.3M" accent="#6b7280" />
-        <InfoRow label="Sequence Length" value="24 steps" accent="#6b7280" />
-        <InfoRow label="Inference Time" value="~12ms" accent="#16a34a" />
+        <InfoRow label="Model" value="LSTM" accent="#add2eb" />
+        <InfoRow label="Accuracy" value="91.4%" accent="#add2eb" />
+        <InfoRow label="Last Trained" value="2 hours ago" accent="#7080a0" />
+        <InfoRow label="Parameters" value="2.3M" accent="#7080a0" />
+        <InfoRow label="Sequence Length" value="24 steps" accent="#7080a0" />
+        <InfoRow label="Inference Time" value="~12ms" accent="#add2eb" />
       </div>
 
       {/* Accuracy bar */}
@@ -85,7 +85,7 @@ export const MLInsightsPanel: React.FC = () => {
           <span
             style={{
               fontSize: 11,
-              color: "#0f766e",
+              color: "#add2eb",
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 600,
             }}
@@ -97,16 +97,16 @@ export const MLInsightsPanel: React.FC = () => {
           className="rounded-full overflow-hidden"
           style={{
             height: 6,
-            background: "rgba(0,0,0,0.06)",
+            background: "rgba(173,210,235,0.1)",
           }}
         >
           <div
             style={{
               width: "91.4%",
               height: "100%",
-              background: "linear-gradient(90deg, #0f766e, #3b82f6)",
+              background: "linear-gradient(90deg, #add2eb, #dcb0fa)",
               borderRadius: "9999px",
-              boxShadow: "0 0 8px rgba(15,118,110,0.3)",
+              boxShadow: "0 0 8px rgba(173,210,235,0.3)",
               transition: "width 1s ease",
             }}
           />
@@ -130,7 +130,7 @@ export const MLInsightsPanel: React.FC = () => {
           <span
             style={{
               fontSize: 11,
-              color: "#3b82f6",
+              color: "#dcb0fa",
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 600,
             }}
@@ -142,16 +142,16 @@ export const MLInsightsPanel: React.FC = () => {
           className="rounded-full overflow-hidden"
           style={{
             height: 6,
-            background: "rgba(0,0,0,0.06)",
+            background: "rgba(220,176,250,0.1)",
           }}
         >
           <div
             style={{
               width: "88.7%",
               height: "100%",
-              background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
+              background: "linear-gradient(90deg, #dcb0fa, #f97316)",
               borderRadius: "9999px",
-              boxShadow: "0 0 8px rgba(59,130,246,0.3)",
+              boxShadow: "0 0 8px rgba(220,176,250,0.3)",
             }}
           />
         </div>
@@ -161,18 +161,18 @@ export const MLInsightsPanel: React.FC = () => {
       <div
         className="mt-4 flex items-center gap-2 rounded-lg px-3 py-2"
         style={{
-          background: "rgba(34,197,94,0.08)",
-          border: "1px solid rgba(34,197,94,0.15)",
+          background: "rgba(173,210,235,0.08)",
+          border: "1px solid rgba(173,210,235,0.15)",
         }}
       >
         <div
           className="rounded-full animate-pulse"
-          style={{ width: 6, height: 6, background: "#16a34a" }}
+          style={{ width: 6, height: 6, background: "#add2eb" }}
         />
         <span
           style={{
             fontSize: 11,
-            color: "#16a34a",
+            color: "#add2eb",
             fontFamily: "'Outfit', sans-serif",
           }}
         >
@@ -192,7 +192,7 @@ const InfoRow: React.FC<{
     <span
       style={{
         fontSize: 11,
-        color: "#9ca3af",
+        color: "#7080a0",
         fontFamily: "'Outfit', sans-serif",
       }}
     >
