@@ -7,7 +7,7 @@ interface HeaderBarProps {
 export const HeaderBar: React.FC<HeaderBarProps> = ({ lastUpdated }) => {
   return (
     <header
-      className="flex items-center justify-between px-6 py-4"
+      className="flex items-center justify-between px-8 py-4"
       style={{
         background: "rgba(15,17,32,0.8)",
         borderBottom: "1px solid rgba(173,210,235,0.08)",
@@ -17,125 +17,130 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ lastUpdated }) => {
         zIndex: 40,
       }}
     >
-      <div className="flex items-center gap-4">
-        {/* Logo mark */}
+      {/* Left section - Branding */}
+      <div className="flex items-center gap-3">
         <div
-          className="flex items-center justify-center rounded-lg"
+          className="flex items-center justify-center rounded-full"
           style={{
-            width: 40,
-            height: 40,
-            background: "linear-gradient(135deg, rgba(173,210,235,0.15), rgba(220,176,250,0.15))",
-            border: "1px solid rgba(173,210,235,0.2)",
+            width: 36,
+            height: 36,
+            background: "rgba(173,210,235,0.12)",
+            border: "1px solid rgba(173,210,235,0.25)",
           }}
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path
               d="M12 2C12 2 5 9.5 5 14.5C5 18.09 8.13 21 12 21C15.87 21 19 18.09 19 14.5C19 9.5 12 2 12 2Z"
               fill="#add2eb"
             />
           </svg>
         </div>
+        <h1
+          className="text-lg font-semibold"
+          style={{
+            color: "#e8eef5",
+            fontFamily: "'Space Grotesk', sans-serif",
+            letterSpacing: "0.02em",
+          }}
+        >
+          AquaFlow
+        </h1>
+      </div>
 
-        <div>
-          <h1
-            className="text-xl font-bold tracking-wide leading-none"
+      {/* Center section - Navigation */}
+      <div className="flex items-center gap-8">
+        {["Dashboard", "Analytics", "Reports", "Settings"].map((item) => (
+          <a
+            key={item}
+            href="#"
+            className="text-sm font-medium transition-colors hover:text-blue-400"
             style={{
-              color: "#e8eef5",
-              fontFamily: "'Space Grotesk', sans-serif",
-              letterSpacing: "0.04em",
+              color: "#9ca3af",
+              fontFamily: "'Outfit', sans-serif",
+              cursor: "pointer",
             }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.color = "#add2eb")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.color = "#9ca3af")
+            }
           >
-            Water Quality{" "}
-            <span style={{ color: "#add2eb" }}>Monitoring System</span>
-          </h1>
-          <p
-            className="text-xs mt-0.5"
+            {item}
+          </a>
+        ))}
+      </div>
+
+      {/* Right section - Status & Actions */}
+      <div className="flex items-center gap-4">
+        {/* Live status */}
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full" style={{background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.2)"}}>
+          <div
+            className="rounded-full"
             style={{
-              color: "#7080a0",
+              width: 6,
+              height: 6,
+              backgroundColor: "#10b981",
+              boxShadow: "0 0 6px rgba(16,185,129,0.5)",
+            }}
+          />
+          <span
+            className="text-xs font-semibold"
+            style={{
+              color: "#10b981",
               fontFamily: "'Outfit', sans-serif",
             }}
           >
-            Real-time environmental intelligence platform
-          </p>
-        </div>
-      </div>
-
-      <div className="flex items-center gap-6">
-        {/* Live indicator */}
-        <div className="flex items-center gap-2">
-          <div className="relative flex items-center justify-center">
-            <div
-              className="absolute rounded-full animate-ping"
-              style={{
-                width: 12,
-                height: 12,
-                backgroundColor: "rgba(16,185,129,0.4)",
-                animationDuration: "1.5s",
-              }}
-            />
-            <div
-              className="rounded-full relative z-10"
-              style={{
-                width: 8,
-                height: 8,
-                backgroundColor: "#10b981",
-                boxShadow: "0 0 8px rgba(16,185,129,0.6)",
-              }}
-            />
-          </div>
-          <span
-            className="text-sm font-semibold tracking-widest"
-            style={{
-              color: "#10b981",
-              fontFamily: "'Space Grotesk', sans-serif",
-            }}
-          >
-            LIVE
+            Live
           </span>
         </div>
 
-        {/* Divider */}
-        <div
+        {/* Settings button */}
+        <button
           style={{
-            width: 1,
-            height: 28,
-            background: "rgba(173,210,235,0.1)",
+            background: "rgba(173,210,235,0.08)",
+            border: "1px solid rgba(173,210,235,0.15)",
+            color: "#add2eb",
+            width: 36,
+            height: 36,
+            borderRadius: 6,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            transition: "all 0.2s",
           }}
-        />
-
-        {/* Timestamp */}
-        <div className="text-right">
-          <p
-            className="text-xs"
-            style={{
-              color: "#7080a0",
-              fontFamily: "'Outfit', sans-serif",
-            }}
-          >
-            Last updated
-          </p>
-          <p
-            className="text-sm font-medium"
-            style={{
-              color: "#c8d4e8",
-              fontFamily: "'JetBrains Mono', monospace",
-            }}
-          >
-            {lastUpdated}
-          </p>
-        </div>
-
-        {/* System status badge */}
-        <div
-          className="px-3 py-1.5 rounded-full text-xs font-medium"
-          style={{
-            background: "rgba(16,185,129,0.1)",
-            border: "1px solid rgba(16,185,129,0.3)",
-            color: "#10b981",
-            fontFamily: "'Outfit', sans-serif",
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "rgba(173,210,235,0.15)";
+            e.currentTarget.style.borderColor = "rgba(173,210,235,0.3)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "rgba(173,210,235,0.08)";
+            e.currentTarget.style.borderColor = "rgba(173,210,235,0.15)";
           }}
         >
-          All sensors online
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m3.08-3.08l4.24-4.24" />
+          </svg>
+        </button>
+
+        {/* Profile avatar */}
+        <div
+          style={{
+            width: 36,
+            height: 36,
+            borderRadius: 6,
+            background: "linear-gradient(135deg, rgba(173,210,235,0.2), rgba(220,176,250,0.2))",
+            border: "1px solid rgba(173,210,235,0.15)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            fontSize: 16,
+          }}
+        >
+          👤
         </div>
       </div>
     </header>
